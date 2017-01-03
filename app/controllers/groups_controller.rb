@@ -25,6 +25,18 @@ class GroupsController < ApplicationController
 		end
 	end
 
+	def destroy
+		
+		@group = Group.find(params[:id])
+
+		@group.destroy
+
+		flash[:alert] = "删除成功!"
+
+		redirect_to groups_path
+
+	end
+
 	def update
 		
 		@group = Group.find(params[:id])
